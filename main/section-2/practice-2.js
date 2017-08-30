@@ -6,7 +6,7 @@ module.exports = function countSameElements(collection) {
   }
   let result = [];
   collection.forEach(item => {
-    let regularRes = /(\w+)-(\d)/g.exec(item);
+    let regularRes = /^(\w+)-(\d+)$/g.exec(item);
     if (regularRes && result.some(value => value.key === regularRes[1]) || result.some(value => value.key === item)) {
       regularRes ?
         result.find(value => value.key === regularRes[1]).count += parseInt(regularRes[2], 10) :
