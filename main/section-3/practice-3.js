@@ -9,8 +9,7 @@ module.exports = function createUpdatedCollection(collectionA, objectB) {
   let result = JSON.parse(JSON.stringify(valueArr));
   result.forEach(item => {
     if (objectB.value.includes(item.key)) {
-      let minus = Math.floor(item.count / 3);
-      item.count -= minus;
+      item.count -= Math.floor(item.count / 3);
     }
   });
   return result;
